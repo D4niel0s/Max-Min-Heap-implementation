@@ -44,6 +44,13 @@ public class Max_Min_Heap{
         return GrandP(i) >= 0;
     }
 
+    public static void Heap_Delete(Max_Min_Heap A,int i){
+        swap(A, A.heapSize-1, i);
+        A.heapSize--;
+
+        Heapify(A,i);
+    }
+
     public static void Heap_Insert(Max_Min_Heap A,int key){ //Doesn't allocate new memory for the new element. assumes memory exists. (said to be OK in the forums)(A.heapVals is bounded at 512 elements)
         A.heapSize++; //"Create" new node at the end of the heap.
         A.heapVals[A.heapSize-1] = key; //Copy value into the new node.
@@ -96,7 +103,6 @@ public class Max_Min_Heap{
         A.heapSize--; //"Remove" last leaf from heap.
 
         Heapify(A,minInd); //Fix sub-heap rooted in the former minimum's index.
-        Heapify(A,Parent(minInd)); //Fix the whole remaining heap, rooted in index 0.
 
         return minVal; //Return former minimum.
         
