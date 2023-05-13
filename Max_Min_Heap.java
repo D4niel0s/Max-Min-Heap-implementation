@@ -39,12 +39,11 @@ public class Max_Min_Heap{
         return GrandP(i) >= 0;
     }
 
-    public static int[] HeapSort(Max_Min_Heap A, int []sorted){
+    
+    public static void HeapSort(Max_Min_Heap A, int []sorted){
         for(int i=0; i<sorted.length ; i++){
             sorted[sorted.length - i - 1] = Heap_Extract_Max(A);
         }
-
-        return sorted;
     }
 
     public static void Heap_Delete(Max_Min_Heap A,int i){
