@@ -1,10 +1,5 @@
-/**
- * The Max_Min_Heap implements a max-min-heap. <br>
- * Includes a heap keys array, and a heap size tracker.
- *
- * @author Daniel Volkov
- */
-import java.util.Scanner;
+import java.util.Scanner; //Import scanner for user input in constructor
+
 public class Max_Min_Heap{
     public static final int MAX_SIZE = 512; //In the forums, it was said that it is okay to bound the heap's length at 512.
     
@@ -42,6 +37,14 @@ public class Max_Min_Heap{
     }
     public static boolean hasGP(int i){
         return GrandP(i) >= 0;
+    }
+
+    public static int[] HeapSort(Max_Min_Heap A, int []sorted){
+        for(int i=0; i<sorted.length ; i++){
+            sorted[sorted.length - i - 1] = Heap_Extract_Max(A);
+        }
+
+        return sorted;
     }
 
     public static void Heap_Delete(Max_Min_Heap A,int i){
